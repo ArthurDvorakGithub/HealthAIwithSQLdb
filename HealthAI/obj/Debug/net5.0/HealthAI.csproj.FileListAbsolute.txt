@@ -436,3 +436,6 @@ C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Cate
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Product\Upsert.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfMedicament\Index.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfMedicament\Create.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfMedicament\Edit.cshtml.g.cs
