@@ -17,5 +17,7 @@ namespace HealthAI.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<CategoryOfMedicament> CategoryOfMedicament { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<Medicament> Medicament { get; set; }
+
     }
 }
