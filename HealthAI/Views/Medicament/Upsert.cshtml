@@ -28,16 +28,16 @@
 
                 </div>
                 
-                @*<div class="form-group row">
+                <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="Product.ShortDesc"></label>
+                        <label asp-for="Medicament.CodATC"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Product.ShortDesc" class="form-control" />
-                        <span asp-validation-for="Medicament.ShortDesc" class="text-danger"></span>
+                        <input asp-for="Medicament.CodATC" class="form-control" />
+                        <span asp-validation-for="Medicament.CodATC" class="text-danger"></span>
                     </div>
 
-                </div>*@
+                </div>
                 <div class="form-group row">
                     <div class="col-4">
                         <label asp-for="Medicament.Description"></label>
@@ -62,7 +62,7 @@
                         <label asp-for="Medicament.CategoryOfMedicamentId"></label>
                     </div>
                     <div class="col-8">
-                        <select asp-for="Medicament.CategoryOfMedicamentId" asp-items="@ViewData["CategoryDropDown"] as IEnumerable<SelectListItem>" class="form-control">
+                        <select asp-for="Medicament.CategoryOfMedicamentId" asp-items="@Model.CategoryMedSelectList" class="form-control">
                             <option disabled selected>--Select Category of Medicament--</option>
                         </select>
                         <span asp-validation-for="Medicament.CategoryOfMedicamentId" class="text-danger"></span>
@@ -92,11 +92,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 ">
+            <div class="col-4">
                 @* Keep this empty *@
                 @if (Model.Medicament.Id != 0)
                 {
-                    <img src="@WC.ImagePath@Model.Medicament.Image" width="100%" style="border-radius:5px; border:1px solid #bbb" />
+                    <img src="@WC.ImagePathMedicament@Model.Medicament.Image" width="100%" style="border-radius:5px; border:1px solid #bbb" />
                 }
             </div>
         </div>

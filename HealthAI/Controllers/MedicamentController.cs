@@ -74,7 +74,7 @@ namespace HealthAI.Controllers
                 {
                     //Create
                     
-                    string upload = webRootPath + WC.ImagePathMedicamnet;
+                    string upload = webRootPath + WC.ImagePathMedicament;
                     string fileName = Guid.NewGuid().ToString();
                     string extension = Path.GetExtension(files[0].FileName);
 
@@ -84,6 +84,7 @@ namespace HealthAI.Controllers
                     }
 
                     medicamentVM.Medicament.Image = fileName + extension;
+
                     _db.Medicament.Add(medicamentVM.Medicament);
                 }
                 else
@@ -93,7 +94,7 @@ namespace HealthAI.Controllers
 
                     if (files.Count > 0)
                     {
-                        string upload = webRootPath + WC.ImagePathMedicamnet;
+                        string upload = webRootPath + WC.ImagePathMedicament;
                         string fileName = Guid.NewGuid().ToString();
                         string extension = Path.GetExtension(files[0].FileName);
 
@@ -122,11 +123,13 @@ namespace HealthAI.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             medicamentVM.CategoryMedSelectList = _db.CategoryOfMedicament.Select(i => new SelectListItem
             {
                 Text = i.Name,
                 Value = i.Id.ToString()
             });
+
             return View(medicamentVM);
 
         }
@@ -141,30 +144,38 @@ namespace HealthAI.Controllers
                 return NotFound();
             }
 
-            var obj = _db.CategoryOfMedicament.Find(id);
+            Medicament medicament = _db.Medicament.Include(u => u.CategoryOfMedicament).FirstOrDefault(u => u.Id == id);
 
-            if (obj == null)
+            if (medicament == null)
             {
                 return NotFound();
             }
 
-            return View(obj);
+            return View(medicament);
         }
 
         // POST - Delete
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? id)
         {
-            var obj = _db.CategoryOfMedicament.Find(id);
-
+            var obj = _db.Medicament.Find(id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.CategoryOfMedicament.Remove(obj);
+            string upload = _webHostEnvironment.WebRootPath + WC.ImagePathMedicament;
+            var oldFile = Path.Combine(upload, obj.Image);
+
+            if (System.IO.File.Exists(oldFile))
+            {
+                System.IO.File.Delete(oldFile);
+            }
+
+            _db.Medicament.Remove(obj);
             _db.SaveChanges();
+
             return RedirectToAction("Index");
 
         }

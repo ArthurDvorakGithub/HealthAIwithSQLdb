@@ -8,7 +8,7 @@ namespace HealthAI
     public class WC
     {
         public const string ImagePath = @"\images\product\";
-        public const string ImagePathMedicamnet = @"\images\medicament\";
+        public const string ImagePathMedicament = @"\images\medicament\";
         public const string SessionCart = "ShoppingCartSession";
 
         public const string AdminRole = "Admin";
