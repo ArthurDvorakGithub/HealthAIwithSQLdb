@@ -443,3 +443,10 @@ C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Cate
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Medicament\Index.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Medicament\Upsert.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Medicament\Delete.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfDisease\Index.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfDisease\Create.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfDisease\Edit.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\CategoryOfDisease\Delete.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Index.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Upsert.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Delete.cshtml.g.cs

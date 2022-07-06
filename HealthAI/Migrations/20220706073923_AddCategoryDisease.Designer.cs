@@ -3,14 +3,16 @@ using HealthAI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HealthAI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220706073923_AddCategoryDisease")]
+    partial class AddCategoryDisease
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,36 +77,6 @@ namespace HealthAI.Migrations
                     b.ToTable("CategoryOfMedicament");
                 });
 
-            modelBuilder.Entity("HealthAI.Models.Disease", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("CategoryOfDiseaseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Contraindications")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryOfDiseaseId");
-
-                    b.ToTable("Disease");
-                });
-
             modelBuilder.Entity("HealthAI.Models.Medicament", b =>
                 {
                     b.Property<int>("Id")
@@ -167,17 +139,6 @@ namespace HealthAI.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product");
-                });
-
-            modelBuilder.Entity("HealthAI.Models.Disease", b =>
-                {
-                    b.HasOne("HealthAI.Models.CategoryOfDisease", "CategoryOfDisease")
-                        .WithMany()
-                        .HasForeignKey("CategoryOfDiseaseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CategoryOfDisease");
                 });
 
             modelBuilder.Entity("HealthAI.Models.Medicament", b =>
