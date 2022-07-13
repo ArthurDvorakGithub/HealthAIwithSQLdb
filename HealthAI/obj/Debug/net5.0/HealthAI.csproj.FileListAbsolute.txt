@@ -450,3 +450,5 @@ C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Cate
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Index.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Upsert.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Disease\Delete.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Shared\_IndividualProductCard.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Home\Details.cshtml.g.cs

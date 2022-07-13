@@ -10,6 +10,7 @@ namespace HealthAI
         public const string ImagePath = @"\images\product\";
         public const string ImagePathMedicament = @"\images\medicament\";
         public const string ImagePathDisease = @"\images\disease\";
+
         public const string SessionCart = "ShoppingCartSession";
 
         public const string AdminRole = "Admin";

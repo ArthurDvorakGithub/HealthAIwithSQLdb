@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using HealthAI.Utility
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,38 +16,56 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-xl navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/doctor-icon.png" width="7%" />HealthAI</a>
+                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/doctor-icon.png" width="7%" />HealthAI</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
-                    <ul class="navbar-nav flex-grow-1">
+
+
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Content Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Category" asp-action="Index">ProdCategories</a>
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Medicament" asp-action="Index">Medicaments</a>
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfMedicament" asp-action="Index">MedCategories</a>
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Disease" asp-action="Index">Disease</a>
+                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfDisease" asp-action="Index">DisCategory</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="nav-link px-2 link-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
+                            </div>
+                        </li>
+
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">ProdCategories</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Medicament" asp-action="Index">Medicaments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CategoryOfMedicament" asp-action="Index">MedCategories</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Disease" asp-action="Index">Disease</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CategoryOfDisease" asp-action="Index">DisCategory</a>
+                            @if (HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)
+                            {
+                                <a asp-action="Index" asp-controller="Cart" class="nav-link">
+                                    @{
+                                        var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
+                                    }
+                                    <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-shopping-cart"></i> &nbsp; (0)
+                                </a>
+                            }
                         </li>
 
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -54,8 +76,10 @@
         <main role="main" class="pb-3">
 
             @RenderBody()
+
         </main>
     </div>
+
 
     <div class="container">
 
