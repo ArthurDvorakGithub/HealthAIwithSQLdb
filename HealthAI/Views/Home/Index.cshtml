@@ -14,8 +14,6 @@
         </div>
     </div>
     <!-- Background image -->
-
-
     <!--Pricing-->
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <h1 class="display-4 fw-normal">Pricing</h1>
@@ -81,6 +79,14 @@
 
 </div>
 
+<!--Our services-->
+<hr>
+
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Our services</h1>
+    <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+</div>
+
 <div class="container">
     <div class="text-center">
         <button class="btn btn-dark filter-button" data-filter="all">All</button>
@@ -100,22 +106,22 @@
         }
     </div>
 </div>
+<!--Our services-->
+
 
 @section Scripts{
     <script>
-    $(document).ready(function(){
-    $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
-        if(value == "all")
-        {
-            $('.filter').show('1000');
-        }
-        else
-        {
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-        }
-    });
-});
+        $(document).ready(function () {
+            $(".filter-button").click(function () {
+                var value = $(this).attr('data-filter');
+                if (value == "all") {
+                    $('.filter').show('1000');
+                }
+                else {
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+                }
+            });
+        });
     </script>
 }

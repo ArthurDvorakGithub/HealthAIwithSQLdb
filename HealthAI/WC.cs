@@ -14,8 +14,9 @@ namespace HealthAI
         public const string SessionCart = "ShoppingCartSession";
 
         public const string AdminRole = "Admin";
-        public const string CustomerRole = "Customer";
+        public const string DoctorRole = "Doctor";
+        public const string PatientRole = "Patient";
 
-        public const string EmailAdmin = "ben.spark90@yahoo.com";
+        public const string EmailAdmin = "artdvorak@yandex.ru";
     }
 }

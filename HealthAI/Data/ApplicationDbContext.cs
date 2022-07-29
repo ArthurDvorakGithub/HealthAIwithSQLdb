@@ -21,5 +21,6 @@ namespace HealthAI.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Medicament> Medicament { get; set; }
         public DbSet<Disease> Disease { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }

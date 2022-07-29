@@ -497,3 +497,6 @@ C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Areas\Iden
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\PanelAdmin\Index.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\PanelDoctor\Index.cshtml.g.cs
+C:\Users\Arthur\source\repos\HealthAI\HealthAI\obj\Debug\net5.0\Razor\Views\PanelPatient\Index.cshtml.g.cs

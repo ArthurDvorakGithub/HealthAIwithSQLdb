@@ -1,0 +1,46 @@
+﻿@{ ViewBag.Title = "Личный кабинет администратора"; }
+
+<h3>Кабинет администратора</h3>
+<h5>Пользователь: @User.Identity.Name</h5>
+
+<div class="container">
+    <div col-lg-8 mx-auto p-3 py-md-5>
+        <main>
+
+            <hr class="col-3 col-md-2 mb-5">
+
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h2>Управление пользователями</h2>
+                    <p>Ознакомьтесь с этими проектами с открытым исходным кодом, которые вы можете скопировать в новый репозиторий GitHub.</p>
+                    <ul class="icon-list">
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Users" asp-action="Index">Редактирование пользователей</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Users" asp-action="Create">Добавить нового пользователя</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Управления ролями</h2>
+                    <p>Прочтите более подробные инструкции и документацию по использованию Bootstrap или содействию ему.</p>
+                    <ul class="icon-list">
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="UserList">Роли пользователей</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="Index">Список ролей</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="Create">Добавить роль</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="col-3 col-md-2 mb-5">
+
+            @*<h2>Загрузите новые файлы</h2>
+                <p class="fs-5 col-md-8">Быстро и легко приступайте к работе с скомпилированными, готовыми к работе файлами Bootstrap с помощью этого простого примера, содержащего базовый HTML и полезные ссылки. Загрузите все наши примеры, чтобы начать.</p>
+                <div class="mb-5">
+                    <a href="/docs/5.1/examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
+                </div>
+                <hr class="col-3 col-md-2 mb-5">*@
+        </main>
+    </div>
+</div>
+
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

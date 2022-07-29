@@ -15,64 +15,92 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-xl navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/doctor-icon.png" width="7%" />HealthAI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
+
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-primary text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4" asp-area="" asp-controller="Home" asp-action="Index">HealthAI CRM</span>
+            </a>         
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                @if (User.IsInRole(WC.AdminRole))
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Content Management
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Category" asp-action="Index">ProdCategories</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Medicament" asp-action="Index">Medicaments</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfMedicament" asp-action="Index">MedCategories</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Disease" asp-action="Index">Disease</a>
+                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfDisease" asp-action="Index">DisCategory</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="nav-link px-2 link-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li><a href="#" class="nav-link px-2 link-dark">News</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+                    <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                }
 
 
 
-                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Content Management
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Category" asp-action="Index">ProdCategories</a>
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Medicament" asp-action="Index">Medicaments</a>
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfMedicament" asp-action="Index">MedCategories</a>
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="Disease" asp-action="Index">Disease</a>
-                                <a class="nav-link px-2 link-dark" asp-area="" asp-controller="CategoryOfDisease" asp-action="Index">DisCategory</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="nav-link px-2 link-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
-                            </div>
-                        </li>
 
-                        <li>
-                            @if (HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)
-                            {
-                                <a asp-action="Index" asp-controller="Cart" class="nav-link">
-                                    @{
-                                        var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
-                                    }
-                                    <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
-                                </a>
+            </ul>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-end mb-md-0">
+                <li>
+                    @if (HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)
+                    {
+                        <a asp-action="Index" asp-controller="Cart" class="nav-link">
+                            @{
+                                var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
                             }
-                            else
-                            {
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-shopping-cart"></i> &nbsp; (0)
-                                </a>
-                            }
-                        </li>
+                            <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-shopping-cart"></i> &nbsp; (0)
+                        </a>
+                    }
+                </li>
+            </ul>
 
-                    </ul>
+            <ul class="nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="PanelAdmin" asp-action="Index">MyPanel-Admin</a></li>
+                        <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="Account" asp-action="Logout">Logout</a></li>
 
-                    <partial name="_LoginPartial" />
+                    }
+                    else
+                    {
+                        <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="PanelUser" asp-action="Index">MyPanel-User</a></li>
+                        <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                    }
 
-                </div>
-            </div>
-        </nav>
-    </header>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="Account" asp-action="Login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link link-dark px-2" asp-controller="Account" asp-action="Register">Sign up</a></li>
+                }
+            </ul>
+
+        </header>
+    </div>
 
 
     <div class="container">
@@ -88,8 +116,8 @@
 
         <hr>
 
-        <footer class="pt-4 my-md-5 pt-md-5 border-">
-            <div class="row">
+        <footer class="pt-4 my-md-5 pt-md-5 border-dark ">
+            <div class="row" >
                 <div class="col-12 col-md">
                     <img class="mb-2" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19">
                     <small class="d-block mb-3 text-muted">© 2017–2021</small>
@@ -126,6 +154,8 @@
             </div>
         </footer>
     </div>
+
+    
 
     @*<footer class="border-top footer text-muted">
             <div class="container">
