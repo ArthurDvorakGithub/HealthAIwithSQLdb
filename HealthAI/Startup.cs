@@ -1,4 +1,5 @@
 using HealthAI.Data;
+using HealthAI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,8 +31,7 @@ namespace HealthAI
             options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddDefaultTokenProviders().AddDefaultUI()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddHttpContextAccessor();
@@ -66,7 +66,7 @@ namespace HealthAI
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
