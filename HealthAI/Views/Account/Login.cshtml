@@ -10,24 +10,13 @@
                 <h4>Use other service to log in.</h4>
 
                 <hr>
-                <form asp-action="ExternalLogin" asp-controller="Account">
-
-                    <div id="socialLoginList" class="col-12">
-                        <p>
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <button type="submit" class="btn btn-outline-dark text-transformation-none" id="currentURL1" name="returnUrl" value="/Home/Index" title="Log in using your Google account">
-                                <img class="google-btn-logo" src="~/сontent/Images/facebook logo.png" width="19" height="19"> Sign in with Facebook
-                            </button>
-                        </p>
-                    </div>
-                </form>
-
+              
                 <form asp-action="ExternalLoginGoogle" asp-controller="Account">
                     <div id="socialLoginList" class="col-12">
                         <p>
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <button type="submit" class="btn btn-outline-dark text-transformation-none" id="currentURL1" name="returnUrl" value="/Home/Index" title="Log in using your Google account">
-                                <img class="google-btn-logo" src="~/сontent/Images/g100px.png" width="19" height="19"> Sign in with Google
+                                <img class="google-btn-logo" src="~/images/g100px.png" width="19" height="19"> Sign in with Google
                             </button>
 
                         </p>

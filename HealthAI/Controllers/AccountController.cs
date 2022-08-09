@@ -88,6 +88,10 @@ namespace HealthAI.Controllers
                             {
                                 return RedirectToAction("Index", "PanelAdmin");
                             }
+                            if(roles.Contains("Doctor"))
+                            {
+                                return RedirectToAction("Index", "PanelDoctor");
+                            }
                             else if (!roles.Any() || roles.Contains("Patient"))
                             {
                                 return RedirectToAction("Index", "PanelPatient");

@@ -1,6 +1,6 @@
 ﻿@*@model List<UserLink>*@
 
-@{ ViewBag.Title = "Личный кабинет пользователя"; }
+@{ ViewBag.Title = "Личный кабинет врача"; }
 
 <h3>Личный кабинет врача</h3>
 <h5>Пользователь: @User.Identity.Name</h5>
@@ -19,47 +19,36 @@
 </div>
 
 
-<table class="table">
+<div class="container">
+    <div col-lg-8 mx-auto p-3 py-md-5>
+        <main>
 
-    <tr><th>Статус больничного</th><th>Имя поциента</th><th>Приходов</th><th>Место работы</th><th>Болезнь</th><th>Действие</th></tr>
+            <hr class="col-3 col-md-2 mb-5">
 
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h2>Управление пациентами</h2>
+                    <p>Ознакомьтесь с этими проектами с открытым исходным кодом, которые вы можете скопировать в новый репозиторий GitHub.</p>
+                    <ul class="icon-list">
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Users" asp-action="Index">Редактирование пациента</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Users" asp-action="Create">Добавить нового пациента</a></li>
+                    </ul>
+                </div>
 
-    @*@foreach (var userlink in Model)
-    {*@
+                <div class="col-md-6">
+                    <h2>Управления ролями</h2>
+                    <p>Прочтите более подробные инструкции и документацию по использованию Bootstrap или содействию ему.</p>
+                    <ul class="icon-list">
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="UserList">Роли пользователей</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="Index">Список ролей</a></li>
+                        <li><a class="nav-link px-2 link-dark" asp-area="" asp-controller="Roles" asp-action="Create">Добавить роль</a></li>
+                    </ul>
+                </div>
+            </div>
 
-        @*<tr>
-            <td>
-                @if (userlink.IsActive == true)
-                {
-                    <button type="button" class="btn btn-outline-primary">Актив.</button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-outline-secondary">Неакт.</button>
-                }
-            </td>
-            <td>@userlink.LinkName</td>
-            <td>@userlink.RedirectCount</td>
-            <td><a href="@userlink.Link">@userlink.Link</a></td>
-            @if (userlink.IsActive == true)
-            {
-                <td><a href="@userlink.LinkCode">@userlink.LinkCode</a></td>
-            }
-            else
-            {
-                <td>@userlink.LinkCode</td>
-            }
+            <hr class="col-3 col-md-2 mb-5">
 
-            <td>
-                <form asp-action="Delete" asp-route-id="@userlink.Id" method="post">
-
-                    <a class="btn btn-sm btn-primary" asp-action="EditLink" asp-route-id="@userlink.Id">Редактировать</a>
-
-                    <button type="submit" class="btn btn-sm btn-danger">
-                        Удалить
-                    </button>
-                </form>
-            </td>
-        </tr>*@
-    @*}*@
-</table>
+            
+        </main>
+    </div>
+</div>
